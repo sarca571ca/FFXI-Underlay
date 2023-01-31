@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"23cac7c190985bdf","x":-397,"y":-169,"width":400,"height":322,"type":"file","file":"Rev Engineer/XIVParty.lua/initialization.md"},
+		{"id":"74367cc560f08dff","x":65,"y":-169,"width":400,"height":429,"type":"file","file":"Rev Engineer/XIVParty.lua/loadLayout.md"},
+		{"id":"67655ed3d4e2c80b","x":-656,"y":500,"width":400,"height":207,"type":"file","file":"Rev Engineer/Settings.lua/init.md"},
+		{"id":"be280e3dff5ab1f9","x":65,"y":337,"width":811,"height":1197,"type":"file","file":"Rev Engineer/Settings.lua/load.md"},
+		{"id":"091e57a208e3fec4","x":65,"y":-326,"width":130,"height":50,"color":"1","type":"text","text":"XIVParty.lua"},
+		{"id":"63854b9003b2640f","x":-285,"y":304,"width":132,"height":50,"color":"1","type":"text","text":"Settings.lua"}
+	],
+	"edges":[
+		{"id":"91b70bb744d0423d","fromNode":"091e57a208e3fec4","fromSide":"left","toNode":"23cac7c190985bdf","toSide":"top"},
+		{"id":"1a5acbac0bd7ba0b","fromNode":"091e57a208e3fec4","fromSide":"bottom","toNode":"74367cc560f08dff","toSide":"top"},
+		{"id":"375dfe569f4bffe8","fromNode":"23cac7c190985bdf","fromSide":"bottom","toNode":"63854b9003b2640f","toSide":"top"},
+		{"id":"be8ed3ebaa026e6e","fromNode":"63854b9003b2640f","fromSide":"left","toNode":"67655ed3d4e2c80b","toSide":"top"},
+		{"id":"81574b93b411da07","fromNode":"63854b9003b2640f","fromSide":"right","toNode":"be280e3dff5ab1f9","toSide":"left"}
+	]
+}
