@@ -53,8 +53,13 @@ windower.register_event('addon command', function(...)
     end
 end)
 
+local size = {}
+local img = {}
+img.__index = img
+
 function init()
-    image = img(windower.addon_path .. 'layouts/test.png', 100, 100)
+    windower.add_to_chat(220, windower.addon_path .. 'layouts/test.png')
+    image = imgCreate(windower.addon_path .. 'layouts/test.png', 100, 100, 1.0, 1.0)
     isInitialized = true
     isLoaded = true
     return image
@@ -66,10 +71,7 @@ function hide()
     isLoaded = false
 end
 
-local img = {}
-img.__index = img
-
-function img(path, width, height, scaleX, scaleY)
+function imgCreate(path, width, height, scaleX, scaleY)
     local obj = {}
     setmetatable(obj, img)
 
@@ -80,6 +82,9 @@ function img(path, width, height, scaleX, scaleY)
     obj.data.pos = {}
     obj.data.pos.x = 0
     obj.data.pos.y = 0
+    obj.data.scale = {}
+    obj.data.scale.x = scaleX
+    obj.data.scale.y = scaleY
     obj.data.size = {}
     obj.data.size.width = width
     obj.data.size.height = width
@@ -94,8 +99,8 @@ function img(path, width, height, scaleX, scaleY)
     if path then
         obj.image:path(path)
     end
-
-    obj:size(width, height)
+-- There is a problem here with method "size" being a nil value???!
+	  obj:size(width, height)
 
     return obj
 end
