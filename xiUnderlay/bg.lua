@@ -52,3 +52,31 @@ function bg:init()
 	
 	isInitialized = true
 end
+
+function bg:dispose()
+	utils:log('Disposing bg')
+	isInitialized = false
+
+	self.underlay:dispose()
+end
+
+function bg:pos(x, y)
+	self.posX = x
+	self.posY = y
+
+	self.underlay:pos(x, y)
+end
+
+function bg:show()
+	if not isInitialized then return end
+	
+	self.underlay:show()
+end
+
+function bg:hide()
+	if not isInitialized then return end
+
+	self.underlay:hide()
+end
+
+return bg

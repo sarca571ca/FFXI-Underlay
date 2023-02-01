@@ -33,8 +33,6 @@ local bg = require('bg')
 local dragImage
 local dragged
 local isInitialized = false
-local isSetupEnabled = false
-local isCtrlDown = false
 local hidden = false
 
 function view:init()
@@ -50,4 +48,45 @@ function view:init()
 	self.posY = 0
 	
 	isInitialized = true
+end
+
+
+function view:dispose()
+	if not isInitialized then return end
+
+	isInitialized = false
+	
+	bg:dispose()
+	dragImage:dispose()
+	
+end
+
+function view:pos(x, y)
+	if not isInitialized then return end
+
+	-- top/left corner, when aligned to bottom: bottom/left corner
+	self.posX = x
+	self.posY = y
+
+	bg:pos(x, y)
+	dragImage:pos(x, y)
+end
+
+
+function view:show()
+	if not isInitialized then return end
+	
+	hidden = false
+	
+	bg:show()
+	dragImage:show()
+end
+
+function view:hide()
+	if not isInitialized then return end
+
+	hidden = true
+	
+	bg:hide()
+	dragImage:hide()
 end

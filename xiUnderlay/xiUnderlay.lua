@@ -36,6 +36,7 @@ file = require('files')
 
 local isLoaded = false
 local isInitialized = false
+
 -- Newly added to just load on addon load for now
 windower.register_event('load', function()
 	if windower.ffxi.get_info().logged_in then
@@ -59,4 +60,10 @@ function init()
 	view:show()
 
 	isInitialized = true
+end
+
+function dispose()
+	isInitialized = false
+	
+	view:dispose()
 end
